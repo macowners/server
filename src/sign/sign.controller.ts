@@ -37,4 +37,5 @@ export class SignController {
   signIn(@Body() body: UserDto) {
     return this.signService.sign_in(body)
   }
+  // 로그아웃기능구현
 }
