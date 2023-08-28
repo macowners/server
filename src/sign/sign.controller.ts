@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common'
+import { Body, Controller, Delete, Post } from '@nestjs/common'
 import { UserDto } from '../dto/user.dto'
 import { SignService } from './sign.service'
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger'
@@ -37,5 +37,6 @@ export class SignController {
   signIn(@Body() body: UserDto) {
     return this.signService.sign_in(body)
   }
+
   // 로그아웃기능구현
 }
