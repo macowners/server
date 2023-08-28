@@ -25,13 +25,14 @@ export class SignService {
 
     return { status: 200, accessToken }
   }
+
   async sign_out(user: UserDto) {
     const findUser = await this.userModel.findOne({ name: user.name })
     if (!findUser) {
       return { status: 401, message: 'User not found' }
     }
-    const invalidatedToken = this.jwtService.sign({ invalidated: true })
 
+    const invalidatedToken = this.jwtService.sign({ invalidated: true })
     return { status: 200, message: 'Logged out successfully' }
   }
 }
