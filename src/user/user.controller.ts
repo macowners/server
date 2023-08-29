@@ -2,8 +2,10 @@ import { Body, Controller, Get, Param, Post } from '@nestjs/common'
 import { UserService } from './user.service'
 import { UserDto } from '../dto/user.dto'
 import { Types } from 'mongoose'
-import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger'
+import { ApiBearerAuth, ApiOperation, ApiResponse, ApiSecurity, ApiTags } from '@nestjs/swagger'
 
+@ApiBearerAuth()
+@ApiSecurity('basic')
 @ApiTags('User')
 @Controller('user')
 export class UserController {
