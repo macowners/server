@@ -38,5 +38,18 @@ export class SignController {
     return this.signService.sign_in(body)
   }
 
-  // 로그아웃기능구현
+  @ApiResponse({
+    status: 200,
+    description: '성공',
+    type: UserDto,
+  })
+  @ApiResponse({
+    status: 401,
+    description: '서버 에러',
+  })
+  @ApiOperation({ summary: '로그아웃' })
+  @Delete('out')
+  signOut(@Body() body: UserDto) {
+    return this.signService.sign_out(body)
+  }
 }
