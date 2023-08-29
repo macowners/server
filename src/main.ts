@@ -2,11 +2,16 @@ import { NestFactory } from '@nestjs/core'
 import { AppModule } from './app.module'
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
 import helmet from 'helmet'
+import { VersioningType } from '@nestjs/common'
 
 declare const module: any
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule)
+  app.enableVersioning({
+    type: VersioningType.URI,
+    prefix: 'v', //prefix를 v로 정의
+  })
   app.setGlobalPrefix('/api')
   app.use(helmet())
 
