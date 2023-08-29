@@ -1,7 +1,8 @@
-import { Body, Controller, Delete, Post } from '@nestjs/common'
+import { Body, Controller, Delete, Post, UseGuards } from '@nestjs/common'
 import { UserDto } from '../dto/user.dto'
 import { SignService } from './sign.service'
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger'
+import { JwtAuthGuard } from 'src/guard/AuthGuard'
 
 @ApiTags('Sign')
 @Controller('sign')
@@ -49,6 +50,7 @@ export class SignController {
   })
   @ApiOperation({ summary: '로그아웃' })
   @Delete('out')
+  @UseGuards(JwtAuthGuard)
   signOut(@Body() body: UserDto) {
     return this.signService.sign_out(body)
   }
