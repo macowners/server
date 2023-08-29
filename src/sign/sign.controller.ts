@@ -2,7 +2,7 @@ import { Body, Controller, Delete, Post, UseGuards } from '@nestjs/common'
 import { UserDto } from '../dto/user.dto'
 import { SignService } from './sign.service'
 import { ApiBearerAuth, ApiOperation, ApiResponse, ApiSecurity, ApiTags } from '@nestjs/swagger'
-import { JwtAuthGuard } from 'src/guard/AuthGuard'
+import { JwtAuthGuard } from '../guard/AuthGuard'
 
 @ApiBearerAuth()
 @ApiSecurity('basic')

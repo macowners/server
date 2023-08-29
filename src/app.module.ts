@@ -6,11 +6,12 @@ import { MongooseModule } from '@nestjs/mongoose'
 import { SignModule } from './sign/sign.module'
 import { HealthModule } from './health/health.module'
 import { LoggerMiddleware } from './middlewares/logger.middlware'
+import { JwtAuthGuard } from './guard/AuthGuard'
 
 @Module({
   imports: [MongooseModule.forRoot('mongodb://localhost/sclife'), UserModule, SignModule, HealthModule],
   controllers: [AppController],
-  providers: [AppService, LoggerMiddleware],
+  providers: [AppService, LoggerMiddleware, JwtAuthGuard],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
