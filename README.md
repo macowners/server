@@ -41,6 +41,9 @@ $ yarn run start
 # watch mode
 $ yarn run start:dev
 
+# hot-reload
+$ yarn run start:webpack
+
 # production mode
 $ yarn run start:prod
 ```
