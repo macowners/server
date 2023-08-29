@@ -4,15 +4,15 @@ import { AppService } from './app.service'
 import { UserModule } from './user/user.module'
 import { MongooseModule } from '@nestjs/mongoose'
 import { SignModule } from './sign/sign.module'
-import { LoggerMiddleware } from './middlewares/logger.middlware'
+import { LoggingInterceptor } from './interceptor/logging.interceptor'
 
 @Module({
   imports: [MongooseModule.forRoot('mongodb://localhost/sclife'), UserModule, SignModule],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, LoggingInterceptor],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
-    consumer.apply(LoggerMiddleware).forRoutes('*')
+    consumer.apply(LoggingInterceptor).forRoutes('*')
   }
 }
