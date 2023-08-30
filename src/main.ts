@@ -34,6 +34,6 @@ async function bootstrap() {
     module.hot.accept()
     module.hot.dispose(() => app.close())
   }
-  console.log(`Listening on port 3000`)
+  console.log(`Listening on port 3000/api`)
 }
 bootstrap()
