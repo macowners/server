@@ -4,7 +4,7 @@ import { IsArray, IsString } from 'class-validator'
 export class UserDto {
   @ApiProperty({
     required: true,
-    example: 'Id',
+    example: 'gildong',
     description: '아이디',
   })
   @IsString()
