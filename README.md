@@ -41,6 +41,8 @@ $ yarn run start
 # watch mode
 $ yarn run start:dev
 
+$ 주소 접속 http://localhost:3000/api/health -Health checks
+
 # hot-reload
 $ yarn run start:webpack
 
