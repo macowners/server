@@ -696,6 +696,13 @@
   resolved "https://registry.npmjs.org/@lukeed/csprng/-/csprng-1.1.0.tgz"
   integrity sha512-Z7C/xXCiGWsg0KuKsHTKJxbWhpI3Vs5GwLfOean7MGyVFGqdRgBbAjOCh6u4bbjPc/8MJ2pZmK/0DLdCbivLDA==
 
+"@mongodb-js/saslprep@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@mongodb-js/saslprep/-/saslprep-1.1.0.tgz#022fa36620a7287d17acd05c4aae1e5f390d250d"
+  integrity sha512-Xfijy7HvfzzqiOAhAepF4SGN5e9leLkMvg/OPOF97XemjfVCYN/oWa75wnkc6mltMSTwY+XlbhWgUOJmkFspSw==
+  dependencies:
+    sparse-bitfield "^3.0.3"
+
 "@nestjs/axios@^3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@nestjs/axios/-/axios-3.0.0.tgz#a2e70b118e3058f3d4b9c3deacd496ec4e3ee69e"
@@ -729,26 +736,26 @@
     webpack "5.88.1"
     webpack-node-externals "3.0.0"
 
-"@nestjs/common@^10.0.0":
-  version "10.1.0"
-  resolved "https://registry.npmjs.org/@nestjs/common/-/common-10.1.0.tgz"
-  integrity sha512-3GNOuDjeAqEVt5Zjia3ZSK55Jg80hIIkq52BOzU+LkCjFgbuEhDot80lCKu05WyntAMAq5wREoDRGEGlSVxENw==
+"@nestjs/common@^10.2.2":
+  version "10.2.2"
+  resolved "https://registry.yarnpkg.com/@nestjs/common/-/common-10.2.2.tgz#bf343663000fb7a65d16773451a38ed87fb3dd0c"
+  integrity sha512-TCOJK2K4FDT3GxFfURjngnjBewS/hizKNFSLBXtX4TTQm0dVQOtESnnVdP14sEiPM6suuWlrGnXW9UDqItGWiQ==
   dependencies:
     uid "2.0.2"
     iterare "1.2.1"
-    tslib "2.6.0"
+    tslib "2.6.2"
 
-"@nestjs/core@^10.0.0":
-  version "10.1.0"
-  resolved "https://registry.npmjs.org/@nestjs/core/-/core-10.1.0.tgz"
-  integrity sha512-3ogHxrRAktQZNBSV709QxhNJQPsVInZRqxAK2fV7JDnfoBMu1lM3xI7cO498iViqq5xme3o/46+AdfjW9W2E2A==
+"@nestjs/core@^10.2.2":
+  version "10.2.2"
+  resolved "https://registry.yarnpkg.com/@nestjs/core/-/core-10.2.2.tgz#ebc093f26aff1f38a6af13d5197fb4472862d19f"
+  integrity sha512-444gApiDCV63Gq7a3WgboNEPBYZt/UcozRhOKEl5FTAXWrZbDoz48e8RXOCFzST1Py0HKUnharMtpb28l7zgJw==
   dependencies:
     uid "2.0.2"
     "@nuxtjs/opencollective" "0.3.2"
     fast-safe-stringify "2.1.1"
     iterare "1.2.1"
     path-to-regexp "3.2.0"
-    tslib "2.6.0"
+    tslib "2.6.2"
 
 "@nestjs/jwt@^10.1.0":
   version "10.1.0"
@@ -763,10 +770,10 @@
   resolved "https://registry.npmjs.org/@nestjs/mapped-types/-/mapped-types-2.0.2.tgz"
   integrity sha512-V0izw6tWs6fTp9+KiiPUbGHWALy563Frn8X6Bm87ANLRuE46iuBMD5acKBDP5lKL/75QFvrzSJT7HkCbB0jTpg==
 
-"@nestjs/mongoose@^10.0.0":
-  version "10.0.0"
-  resolved "https://registry.npmjs.org/@nestjs/mongoose/-/mongoose-10.0.0.tgz"
-  integrity sha512-Wqinhuess5AKGUTs5gtJxs+naXv1BBxADTBw8h6hPAdCkPL/knoIpo0cSxBNJ4COwRqpy4QWGilzPiPR0sJgJA==
+"@nestjs/mongoose@^10.0.1":
+  version "10.0.1"
+  resolved "https://registry.yarnpkg.com/@nestjs/mongoose/-/mongoose-10.0.1.tgz#f55f4bf79d08f4a93834fe7fe27d42b5f19fccf3"
+  integrity sha512-woUViG28WKf/kRiv6NFXu4Oc0DvAPeX4+fT4coDVt2OqndnfJZTXwkkys23uVsBpKSIflRyjPvmcVBHQvcunZw==
 
 "@nestjs/passport@^10.0.1":
   version "10.0.1"
@@ -1736,9 +1743,9 @@ bser@2.1.1:
   dependencies:
     node-int64 "^0.4.0"
 
-bson@^5.3.0:
+bson@^5.4.0:
   version "5.4.0"
-  resolved "https://registry.npmjs.org/bson/-/bson-5.4.0.tgz"
+  resolved "https://registry.yarnpkg.com/bson/-/bson-5.4.0.tgz#0eea77276d490953ad8616b483298dbff07384c6"
   integrity sha512-WRZ5SQI5GfUuKnPTNmAYPiKIof3ORXAF4IRU5UcgmivNIon01rWQlw5RUH954dpu8yGL8T59YShVddIPaU/gFA==
 
 buffer-equal-constant-time@1.0.1:
@@ -3842,25 +3849,25 @@ mongodb-connection-string-url@^2.6.0:
     "@types/whatwg-url" "^8.2.1"
     whatwg-url "^11.0.0"
 
-mongodb@5.6.0:
-  version "5.6.0"
-  resolved "https://registry.npmjs.org/mongodb/-/mongodb-5.6.0.tgz"
-  integrity sha512-z8qVs9NfobHJm6uzK56XBZF8XwM9H294iRnB7wNjF0SnY93si5HPziIJn+qqvUR5QOff/4L0gCD6SShdR/GtVQ==
+mongodb@5.8.1:
+  version "5.8.1"
+  resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-5.8.1.tgz#dc201adfbd6c6d73401cdcf12ebdb75f14771faf"
+  integrity sha512-wKyh4kZvm6NrCPH8AxyzXm3JBoEf4Xulo0aUWh3hCgwgYJxyQ1KLST86ZZaSWdj6/kxYUA3+YZuyADCE61CMSg==
   dependencies:
-    bson "^5.3.0"
+    bson "^5.4.0"
     mongodb-connection-string-url "^2.6.0"
     socks "^2.7.1"
   optionalDependencies:
-    saslprep "^1.0.3"
+    "@mongodb-js/saslprep" "^1.1.0"
 
-mongoose@^7.3.4:
-  version "7.3.4"
-  resolved "https://registry.npmjs.org/mongoose/-/mongoose-7.3.4.tgz"
-  integrity sha512-luvv4PKFiFYaHNn5wGIRrMML3Vvoa8lkdhcLE1S/6gY9s9CUOdEu9olbDrkhvnwRQ20j1SrQFO5JEApW0xwL3w==
+mongoose@^7.5.0:
+  version "7.5.0"
+  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-7.5.0.tgz#d10003ffc1ff876d761c7cbca6844ddd2aadd42f"
+  integrity sha512-FpOWOb0AJuaVcplmEyIJ2eCbVGe4gOoniPD+pmft5BrGrNrsFcnYXlERdXtBApGHMHPwD7WbxTyhCbUNr72F3Q==
   dependencies:
-    bson "^5.3.0"
+    bson "^5.4.0"
     kareem "2.5.1"
-    mongodb "5.6.0"
+    mongodb "5.8.1"
     mpath "0.9.0"
     mquery "5.0.0"
     ms "2.1.3"
@@ -4482,13 +4489,6 @@ safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "2.1.2"
   resolved "https://registry.npmjs.org/safer-buffer/-/safer-buffer-2.1.2.tgz"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
-
-saslprep@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.npmjs.org/saslprep/-/saslprep-1.0.3.tgz"
-  integrity sha512-/MY/PEMbk2SuY5sScONwhUDsV2p77Znkb/q3nSVstq/yQzYJOH/Azh29p9oJLsl3LnQwSvZDKagDGBsBwSooag==
-  dependencies:
-    sparse-bitfield "^3.0.3"
 
 schema-utils@^3.1.1, schema-utils@^3.2.0:
   version "3.3.0"
