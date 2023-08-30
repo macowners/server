@@ -7,9 +7,10 @@ import { SignModule } from './sign/sign.module'
 import { HealthModule } from './health/health.module'
 import { LoggerMiddleware } from './middlewares/logger.middlware'
 import { JwtAuthGuard } from './guard/AuthGuard'
+import { CommentsModule } from './comments/comments.module'
 
 @Module({
-  imports: [MongooseModule.forRoot('mongodb://localhost/sclife'), UserModule, SignModule, HealthModule],
+  imports: [MongooseModule.forRoot('mongodb://localhost/sclife'), UserModule, SignModule, HealthModule, CommentsModule],
   controllers: [AppController],
   providers: [AppService, LoggerMiddleware, JwtAuthGuard],
 })
