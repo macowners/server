@@ -1,11 +1,11 @@
 import * as mongoose from 'mongoose'
 
 export const QuestionSchema = new mongoose.Schema({
-  content: String,
+  content2: String,
   createdAt: { type: Date, default: Date.now },
 })
 
 export interface Question extends mongoose.Document {
-  content: string
+  content2: string
   createdAt: Date
 }
