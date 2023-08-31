@@ -15,4 +15,13 @@ export class CommentsService {
   async getAllComments(): Promise<Comment[]> {
     return await this.commentModel.find().exec()
   }
+
+  async createPost(title: string, content: string): Promise<Comment> {
+    const newPost = new this.commentModel({ postTitle: title, postContent: content })
+    return await newPost.save()
+  }
+
+  async getAllPosts(): Promise<Comment[]> {
+    return await this.commentModel.find({ postTitle: { $exists: true } }).exec()
+  }
 }
