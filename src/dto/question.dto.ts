@@ -3,6 +3,13 @@ import { IsDateString, IsString } from 'class-validator'
 
 export class QuestionDto {
   @ApiProperty({
+    example: 'asdf.png',
+    description: '이미지'
+  })
+  @IsString()
+  readonly img: string
+
+  @ApiProperty({
     required: true,
     example: '안녕하세요',
     description: '내용'

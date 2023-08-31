@@ -23,7 +23,7 @@ export class SignController {
   @ApiOperation({ summary: '회원가입' })
   @Post('up')
   signUp(@Body() body: UserDto) {
-    return this.signService.sign_up(body)
+    return this.signService.sign_up({ ...body, img: 'default.jpg', score: 100 })
   }
 
   @ApiResponse({

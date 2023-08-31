@@ -9,9 +9,11 @@ import { LoggerMiddleware } from './middlewares/logger.middlware'
 import { JwtAuthGuard } from './guard/AuthGuard'
 import { CommentsModule } from './comments/comments.module'
 import { QuestionModule } from './question/question.module'
+import { FileController } from './file/file.controller'
+import { FileModule } from './file/file.module'
 
 @Module({
-  imports: [MongooseModule.forRoot('mongodb://localhost/sclife'), UserModule, SignModule, HealthModule, CommentsModule, QuestionModule],
+  imports: [MongooseModule.forRoot('mongodb://localhost/sclife'), UserModule, SignModule, HealthModule, CommentsModule, QuestionModule, FileModule],
   controllers: [AppController],
   providers: [AppService, LoggerMiddleware, JwtAuthGuard],
 })

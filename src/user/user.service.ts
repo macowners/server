@@ -14,4 +14,11 @@ export class UserService {
   async findById(_id: Types.ObjectId) {
     return this.userModel.findById(_id).exec()
   }
+  
+  async profile(
+    _id: Types.ObjectId,
+    img: string
+  ) {
+    return this.userModel.findByIdAndUpdate(_id, { img }).exec()
+  }
 }

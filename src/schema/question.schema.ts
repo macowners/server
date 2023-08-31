@@ -5,6 +5,9 @@ export type QuestionDocument = HydratedDocument<Question>
 
 @Schema()
 export class Question {
+  @Prop()
+  img: string
+
   @Prop({ required: true })
   content2: string
 

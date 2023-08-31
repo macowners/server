@@ -5,6 +5,8 @@ import { MongooseModule } from '@nestjs/mongoose'
 import { User, UserSchema } from '../schema/user.schema'
 import { JwtModule } from '@nestjs/jwt'
 import { jwtConstants } from '../../util/secret.contants'
+import { MulterModule } from '@nestjs/platform-express'
+import { diskStorage } from 'multer'
 
 @Module({
   imports: [
@@ -15,6 +17,14 @@ import { jwtConstants } from '../../util/secret.contants'
       }),
     }),
     MongooseModule.forFeature([{ name: User.name, schema: UserSchema }]),
+    MulterModule.register({
+      storage: diskStorage({
+        destination: './uploads/profile',
+        filename: (_, file, cb) => {
+          cb(null, `${Date.now()}-${file.originalname}`)
+        }
+      })
+    })
   ],
   controllers: [SignController],
   providers: [SignService],
