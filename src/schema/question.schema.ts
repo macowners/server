@@ -1,11 +1,15 @@
-import * as mongoose from 'mongoose'
+import { HydratedDocument } from 'mongoose'
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
 
-export const QuestionSchema = new mongoose.Schema({
-  content2: String,
-  createdAt: { type: Date, default: Date.now },
-})
+export type QuestionDocument = HydratedDocument<Question>
 
-export interface Question extends mongoose.Document {
+@Schema()
+export class Question {
+  @Prop({ required: true })
   content2: string
+
+  @Prop({ default: Date.now })
   createdAt: Date
 }
+
+export const QuestionSchema = SchemaFactory.createForClass(Question)
