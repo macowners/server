@@ -1,7 +1,14 @@
 import { ApiProperty } from '@nestjs/swagger'
-import { IsArray, IsString } from 'class-validator'
+import { IsArray, IsNumber, IsString } from 'class-validator'
 
 export class UserDto {
+  @ApiProperty({
+    example: 'default.jpg',
+    description: '프로필 이미지'
+  })
+  @IsString()
+  readonly img: string
+
   @ApiProperty({
     required: true,
     example: 'gildong',
@@ -12,6 +19,14 @@ export class UserDto {
 
   @ApiProperty({
     required: true,
+    example: 'asdf@gmail.com',
+    description: '이메일'
+  })
+  @IsString()
+  readonly email: string
+
+  @ApiProperty({
+    required: true,
     example: 'qwer1234!',
     description: '비밀번호',
   })
@@ -19,10 +34,16 @@ export class UserDto {
   readonly password: string
 
   @ApiProperty({
-    required: true,
     example: '그룹이름',
     description: '그룹',
   })
   @IsArray()
   readonly group: string[]
+
+  @ApiProperty({
+    example: '97',
+    description: '상담, 진담 점수'
+  })
+  @IsNumber()
+  readonly score: number
 }

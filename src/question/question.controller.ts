@@ -1,7 +1,9 @@
-import { Body, Controller, Get, Post } from '@nestjs/common'
+import { Body, Controller, Get, Post, UploadedFile, UseInterceptors } from '@nestjs/common'
 import { QuestionService } from './question.service'
 import { Question } from '../schema/question.schema'
 import { ApiBearerAuth, ApiOperation, ApiSecurity, ApiTags } from '@nestjs/swagger'
+import { FileInterceptor } from '@nestjs/platform-express'
+import { QuestionDto } from 'src/dto/question.dto'
 
 @ApiBearerAuth()
 @ApiSecurity('basic')
@@ -11,14 +13,18 @@ export class QuestionController {
   constructor(private readonly questionService: QuestionService) {}
 
   @ApiOperation({ summary: '질문 등록' })
+  @UseInterceptors(FileInterceptor('file'))
   @Post()
-  async createQuestion(@Body('content2') content2: string): Promise<Question> {
-    return await this.questionService.createQuestion(content2)
+  createQuestion(
+    @UploadedFile() file: Array<Express.Multer.File>,
+    @Body() body: QuestionDto
+  ): Promise<Question> {
+    return this.questionService.create({ ...body, img: JSON.parse(JSON.stringify(file)).filename })
   }
 
   @ApiOperation({ summary: '질문 보기' })
   @Get()
-  async getAllQuestion(): Promise<Question[]> {
-    return await this.questionService.getAllQuestion()
+  getAllQuestion(): Promise<Question[]> {
+    return this.questionService.getAll()
   }
 }

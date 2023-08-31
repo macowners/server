@@ -6,13 +6,10 @@ export type CommentDocument = HydratedDocument<Comment>
 @Schema()
 export class Comment {
   @Prop({ required: true })
+  post_id: string
+
+  @Prop({ required: true })
   content: string
-
-  @Prop({ required: true })
-  postTitle: string
-
-  @Prop({ required: true })
-  postContent: string
 
   @Prop({ default: Date.now })
   createdAt: Date

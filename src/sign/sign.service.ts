@@ -10,19 +10,18 @@ export class SignService {
   constructor(@InjectModel(User.name) private userModel: Model<User>, private jwtService: JwtService) {}
 
   async sign_up(user: UserDto) {
-    const findUser = await this.userModel.findOne({ name: user.name })
-    if (findUser) return { status: 401, message: `user '${user.name}' already exists` }
-
-    const createUser = new this.userModel(user).save()
+    const findUser = await this.userModel.findOne({ email: user.email })
+    if (findUser) return { status: 401, message: `user '${user.email}' already exists` }
+    
+    new this.userModel(user).save()
     return { status: 200, data: new this.userModel(user) }
   }
 
   async sign_in(user: UserDto) {
-    const findUser = await this.userModel.findOne({ name: user.name })
+    const findUser = await this.userModel.findOne({ email: user.email })
     if (!findUser) return { status: 401 }
 
-    const accessToken = this.jwtService.sign({ name: findUser.name })
-
+    const accessToken = this.jwtService.sign({ id: findUser._id, email: findUser.email, name: findUser.name })
     return { status: 200, accessToken }
   }
 
@@ -32,7 +31,7 @@ export class SignService {
       return { status: 401, message: 'User not found' }
     }
 
-    const invalidatedToken = this.jwtService.sign({ invalidated: true })
+    this.jwtService.sign({ invalidated: true })
     return { status: 200, message: 'Logged out successfully' }
   }
 }
