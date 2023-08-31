@@ -1,18 +1,24 @@
-import * as mongoose from 'mongoose'
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
+import { HydratedDocument } from 'mongoose'
 
-export const CommentSchema = new mongoose.Schema(
-  {
-    content: String,
-    postTitle: String, // 게시물 제목
-    postContent: String, // 게시물 내용
-  },
-  { timestamps: true },
-)
+export type CommentDocument = HydratedDocument<Comment>
 
-export interface Comment extends mongoose.Document {
+@Schema()
+export class Comment {
+  @Prop({ required: true })
   content: string
+
+  @Prop({ required: true })
   postTitle: string
+
+  @Prop({ required: true })
   postContent: string
+
+  @Prop({ default: Date.now })
   createdAt: Date
+
+  @Prop({ default: Date.now })
   updatedAt: Date
 }
+
+export const CommentSchema = SchemaFactory.createForClass(Comment)
