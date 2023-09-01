@@ -1,7 +1,6 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path')
 const nodeExternals = require('webpack-node-externals')
-
-// warning ../../package.json: No license field 무시
 
 module.exports = {
   mode: 'development',
