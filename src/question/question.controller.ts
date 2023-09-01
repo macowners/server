@@ -3,7 +3,7 @@ import { QuestionService } from './question.service'
 import { Question } from '../schema/question.schema'
 import { ApiBearerAuth, ApiOperation, ApiSecurity, ApiTags } from '@nestjs/swagger'
 import { FileInterceptor } from '@nestjs/platform-express'
-import { QuestionDto } from 'src/dto/question.dto'
+import { QuestionDto } from '../dto/question.dto'
 
 @ApiBearerAuth()
 @ApiSecurity('basic')

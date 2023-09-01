@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common'
 import { MongooseModule } from '@nestjs/mongoose'
-import { QuestionSchema } from 'src/schema/question.schema'
+import { QuestionSchema } from '../schema/question.schema'
 import { QuestionService } from './question.service'
 import { QuestionController } from './question.controller'
 import { MulterModule } from '@nestjs/platform-express'
