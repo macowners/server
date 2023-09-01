@@ -9,7 +9,6 @@ import { LoggerMiddleware } from './middlewares/logger.middlware'
 import { JwtAuthGuard } from './guard/AuthGuard'
 import { CommentsModule } from './comments/comments.module'
 import { QuestionModule } from './question/question.module'
-import { FileController } from './file/file.controller'
 import { FileModule } from './file/file.module'
 
 @Module({

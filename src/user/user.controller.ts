@@ -52,11 +52,8 @@ export class UserController {
     description: '서버 에러',
   })
   @UseInterceptors(FileInterceptor('file'))
-@Patch('profile')
-  uploadUserProfile(
-    @UploadedFile() file: Array<Express.Multer.File>,
-    @Body('id') _id: Types.ObjectId
-  ) {
+  @Patch('profile')
+  uploadUserProfile(@UploadedFile() file: Array<Express.Multer.File>, @Body('id') _id: Types.ObjectId) {
     return this.userService.profile(_id, JSON.parse(JSON.stringify(file)).filename)
   }
 }

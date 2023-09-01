@@ -22,9 +22,9 @@ import { diskStorage } from 'multer'
         destination: './uploads/profile',
         filename: (_, file, cb) => {
           cb(null, `${Date.now()}-${file.originalname}`)
-        }
-      })
-    })
+        },
+      }),
+    }),
   ],
   controllers: [SignController],
   providers: [SignService],

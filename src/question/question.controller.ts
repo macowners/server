@@ -15,10 +15,7 @@ export class QuestionController {
   @ApiOperation({ summary: '질문 등록' })
   @UseInterceptors(FileInterceptor('file'))
   @Post()
-  createQuestion(
-    @UploadedFile() file: Array<Express.Multer.File>,
-    @Body() body: QuestionDto
-  ): Promise<Question> {
+  createQuestion(@UploadedFile() file: Array<Express.Multer.File>, @Body() body: QuestionDto): Promise<Question> {
     return this.questionService.create({ ...body, img: JSON.parse(JSON.stringify(file)).filename })
   }
 

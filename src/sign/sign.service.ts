@@ -12,7 +12,7 @@ export class SignService {
   async sign_up(user: UserDto) {
     const findUser = await this.userModel.findOne({ email: user.email })
     if (findUser) return { status: 401, message: `user '${user.email}' already exists` }
-    
+
     new this.userModel(user).save()
     return { status: 200, data: new this.userModel(user) }
   }

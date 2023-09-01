@@ -14,9 +14,9 @@ import { diskStorage } from 'multer'
         destination: './uploads/post',
         filename: (_, file, cb) => {
           cb(null, `${Date.now()}-${file.originalname}`)
-        }
-      })
-    })
+        },
+      }),
+    }),
   ],
   controllers: [QuestionController],
   providers: [QuestionService],

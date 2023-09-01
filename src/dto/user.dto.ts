@@ -4,7 +4,7 @@ import { IsArray, IsNumber, IsString } from 'class-validator'
 export class UserDto {
   @ApiProperty({
     example: 'default.jpg',
-    description: '프로필 이미지'
+    description: '프로필 이미지',
   })
   @IsString()
   readonly img: string
@@ -20,7 +20,7 @@ export class UserDto {
   @ApiProperty({
     required: true,
     example: 'asdf@gmail.com',
-    description: '이메일'
+    description: '이메일',
   })
   @IsString()
   readonly email: string
@@ -42,7 +42,7 @@ export class UserDto {
 
   @ApiProperty({
     example: '97',
-    description: '상담, 진담 점수'
+    description: '상담, 진담 점수',
   })
   @IsNumber()
   readonly score: number

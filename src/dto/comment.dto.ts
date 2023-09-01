@@ -5,7 +5,7 @@ export class CommentDto {
   @ApiProperty({
     required: true,
     example: '',
-    description: '내용'
+    description: '내용',
   })
   @IsString()
   readonly post_id: string
@@ -13,7 +13,7 @@ export class CommentDto {
   @ApiProperty({
     required: true,
     example: '안녕하세요',
-    description: '내용'
+    description: '내용',
   })
   @IsString()
   readonly content: string
