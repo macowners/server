@@ -56,4 +56,9 @@ export class UserController {
   uploadUserProfile(@UploadedFile() file: Array<Express.Multer.File>, @Body('id') _id: Types.ObjectId) {
     return this.userService.profile(_id, JSON.parse(JSON.stringify(file)).filename)
   }
+
+  @Post('calculate-study-schedule')
+  calculateStudySchedule(@Body('courseCount') courseCount: number, @Body('pageCount') pageCount: number, @Body('remainingDays') remainingDays: number) {
+    return this.userService.calculateStudySchedule(courseCount, pageCount, remainingDays)
+  }
 }
