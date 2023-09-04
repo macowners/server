@@ -57,6 +57,7 @@ export class UserController {
     return this.userService.profile(_id, JSON.parse(JSON.stringify(file)).filename)
   }
 
+  @ApiOperation({ summary: '분배기능' })
   @Post('calculate-study-schedule')
   calculateStudySchedule(@Body('courseCount') courseCount: number, @Body('pageCount') pageCount: number, @Body('remainingDays') remainingDays: number) {
     return this.userService.calculateStudySchedule(courseCount, pageCount, remainingDays)
