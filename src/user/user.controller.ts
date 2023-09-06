@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Patch, Post, UploadedFile, UseInterceptors } from '@nestjs/common'
+import { Body, Controller, Get, Post, Put, UploadedFile, UseInterceptors } from '@nestjs/common'
 import { UserService } from './user.service'
 import { UserDto } from '../dto/user.dto'
 import { Types } from 'mongoose'
@@ -52,7 +52,7 @@ export class UserController {
     description: '서버 에러',
   })
   @UseInterceptors(FileInterceptor('file'))
-  @Patch('profile')
+  @Put('profile')
   uploadUserProfile(@UploadedFile() file: Array<Express.Multer.File>, @Body('id') _id: Types.ObjectId) {
     return this.userService.profile(_id, JSON.parse(JSON.stringify(file)).filename)
   }
