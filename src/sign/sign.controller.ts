@@ -1,8 +1,9 @@
-import { Body, Controller, Delete, Post, UseGuards } from '@nestjs/common'
+import { Body, Controller, Delete, Post, UploadedFile, UseGuards, UseInterceptors } from '@nestjs/common'
 import { UserDto } from '../dto/user.dto'
 import { SignService } from './sign.service'
 import { ApiBearerAuth, ApiOperation, ApiResponse, ApiSecurity, ApiTags } from '@nestjs/swagger'
 import { JwtAuthGuard } from '../guard/AuthGuard'
+import { FileInterceptor } from '@nestjs/platform-express'
 
 @ApiBearerAuth()
 @ApiSecurity('basic')
@@ -20,10 +21,11 @@ export class SignController {
     status: 401,
     description: '서버 에러',
   })
+  @UseInterceptors(FileInterceptor('file'))
   @ApiOperation({ summary: '회원가입' })
   @Post('up')
-  signUp(@Body() body: UserDto) {
-    return this.signService.sign_up({ ...body, img: 'default.jpg', score: 100 })
+  signUp(@UploadedFile() file: Array<Express.Multer.File>, @Body() body: UserDto) {
+    return this.signService.sign_up({ ...body, img: 'default.jpg', score: 100, group: [] })
   }
 
   @ApiResponse({

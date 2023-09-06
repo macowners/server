@@ -57,9 +57,14 @@ export class UserController {
     return this.userService.profile(_id, JSON.parse(JSON.stringify(file)).filename)
   }
 
-  @ApiOperation({ summary: '분배기능' })
-  @Post('calculate-study-schedule')
-  calculateStudySchedule(@Body('courseCount') courseCount: number, @Body('pageCount') pageCount: number, @Body('remainingDays') remainingDays: number) {
-    return this.userService.calculateStudySchedule(courseCount, pageCount, remainingDays)
+  @ApiOperation({ summary: '분배기능-문제집' })
+  @Post('calculate-study-schedule-P')
+  calculateStudySchedule_P(@Body('pageCount') pageCount: number, @Body('remainingDays') remainingDays: number) {
+    return this.userService.calculateStudySchedule_P(pageCount, remainingDays)
+  }
+  @ApiOperation({ summary: '분배기능-강의' })
+  @Post('calculate-study-schedule-S')
+  calculateStudySchedule_S(@Body('courseCount') courseCount: number, @Body('remainingDays') remainingDays: number) {
+    return this.userService.calculateStudySchedule_S(courseCount, remainingDays)
   }
 }
